@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-waterfall.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <waterfall :line-gap="200" :watch="items">
+        <!-- each component is wrapped by a waterfall slot -->
+        <waterfall-slot
+                v-for="(item, index) in items"
+                :width="200"
+                :height="200"
+                :order="index"
+                :key="item.id"
+        >
+            <img :src="item" width="200" height="200" alt="elastic-logo">
+        </waterfall-slot>
+    </waterfall>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        components: {
+            'waterfall': Waterfall.waterfall,
+            'waterfall-slot': Waterfall.waterfallSlot
+        },
+        data: {
+            line: 'h',
+            items:
+                ["http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
+                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
+                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
+                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
+                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
+                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"],
+        }
+    })
+
+</script>
+
+</body>
+</html>
