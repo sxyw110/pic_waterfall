@@ -12,12 +12,13 @@
         <!-- each component is wrapped by a waterfall slot -->
         <waterfall-slot
                 v-for="(item, index) in items"
-                :width="200"
-                :height="200"
+                :width="30"
+                :height="80"
                 :order="index"
                 :key="item.id"
         >
-            <img :src="item" width="200" height="200" alt="elastic-logo">
+            <img :src="item" width="30"
+                 alt="elastic-logo">
         </waterfall-slot>
     </waterfall>
 </div>
@@ -31,12 +32,12 @@
         data: {
             line: 'h',
             items:
-                ["http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
-                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
-                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
-                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
-                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
-                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"],
+                ["http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/2.jpg","http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg"
+                    ,"http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg"
+                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/2.jpg","http://123.207.227.103/proxy/fox.jpg"
+                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/1.jpg"
+                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
+                    ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"],
         }
     })
 
