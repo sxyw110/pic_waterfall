@@ -5,24 +5,31 @@
     <title>Title</title>
     <script src="js/vue.min.js"></script>
     <script src="js/vue-waterfall.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/skin.css"/>
+    <script src="js/vue-photo-preview.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <div id="app">
-    <waterfall :line-gap="200" :watch="items">
+    <waterfall :line-gap="300" :align="align" :watch="items">
         <!-- each component is wrapped by a waterfall slot -->
         <waterfall-slot
                 v-for="(item, index) in items"
-                :width="30"
-                :height="80"
+                :width="1920"
+                :height="1200"
                 :order="index"
                 :key="item.id"
         >
-            <img :src="item" width="30"
-                 alt="elastic-logo">
+
+                <img :src="item" preview="1" preview-text="描述文字" style="height: 100%"
+                     alt="elastic-logo">1111
         </waterfall-slot>
     </waterfall>
 </div>
 <script>
+    var options={
+        fullscreenEl:false //关闭全屏按钮
+    }
+    Vue.use(vuePhotoPreview,options);
     new Vue({
         el: '#app',
         components: {
@@ -30,14 +37,18 @@
             'waterfall-slot': Waterfall.waterfallSlot
         },
         data: {
+            align: 'center',
             line: 'h',
             items:
-                ["http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/2.jpg","http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg"
+                ["http://123.207.227.103/proxy/200/200/fox.jpg","http://123.207.227.103/proxy/2.jpg","http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg"
                     ,"http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg"
                     ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/2.jpg","http://123.207.227.103/proxy/fox.jpg"
                     ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/1.jpg"
                     ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"
                     ,"http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/1.jpg","http://123.207.227.103/proxy/fox.jpg","http://123.207.227.103/proxy/fox.jpg"],
+        },
+        mounted: function() {
+            this.$previewRefresh();
         }
     })
 
